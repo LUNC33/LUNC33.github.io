@@ -1,0 +1,76 @@
+<script type='text/javascript'>
+ 
+function randomString(len) {
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    var string_length = len;
+    var randomstring ='';
+    for (var i = 0; i < string_length; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        randomstring += chars.substring(rnum, rnum + 1);
+    }
+    return randomstring;
+}
+ 
+function randomztring(len) {
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz_-";
+    var string_length = len;
+    var randomstring ='';
+    for (var i = 0; i < string_length; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        randomstring += chars.substring(rnum, rnum + 1);
+    }
+    return randomstring;
+}
+ 
+ 
+ 
+ 
+function getCPN() {
+    var l11 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "_"];
+    var l1I = "";
+    var lIl = 0;
+    while (lIl < 16) {
+        l1I = (l1I + l11[Math.floor((Math.random() * 64))]);
+        lIl++;
+    }
+    return l1I;
+}
+ 
+ 
+ 
+var docids=['GSuPnCqDddM','GSuPnCqDddM','GSuPnCqDddM','GSuPnCqDddM','GSuPnCqDddM','GSuPnCqDddM','GSuPnCqDddM'];
+ 
+ 
+ 
+var videlens = ['8.301','8.301','8.301','8.301','8.301','8.301','8.301'];
+ 
+ 
+ 
+var referrers=['http://facebook.com','http://twitter.com','http://google.com','http://youtube.com','http://wordpress.org','http://adobe.com','http://blogspot.com','http://wikipedia.org','http://wordpress.com','http://linkedin.com','http://yahoo.com','http://pinterest.com'];
+ 
+var j =Math.floor(Math.random()*(referrers.length+1));
+ 
+var x =0;
+    for (var i = 0; i < 25 * docids.length; i++) {
+if(x>docids.length -1 )
+{
+x=0;
+}
+ 
+    var docid = docids[x];
+    var videlen = videlens[x];
+    var urlsone ='';
+    var urlstwo ='';
+    var vid = randomztring(32);
+            var plid = randomString(16);
+        var cpn = getCPN();
+        var rt = Math.floor(Math.random() * 11).toFixed(2);
+        var rt2 = parseInt(rt, 10) + parseInt(videlen, 10);
+         rt2 = rt2.toFixed(2);
+urlsone = urlsone+'<script type="text/javascript" src="http://s.youtube.com/api/stats/playback?ns=yt&el=embedded&cpn='+ cpn +'&docid='+ docid +'&ver=2&cmt=0.02&plid=AATd'+ plid +'&fmt=43&fs=0&vid='+ vid +'C&rt=4.454&cver=html5&len='+videlen+'&euri= ' +referrers[j] + '  &fexp=904832%2C916625%2C911412%2C932000%2C906383%2C902000%2C901208%2C919512%2C925714%2C931202%2C900821%2C900823%2C931203%2C931401%2C906090%2C909419%2C908529%2C904830%2C930807%2C919373%2C930803%2C906836%2C920201%2C929602%2C930101%2C926403%2C900824%2C910223&mos=0&volume=100&st=0.02&et='+videlen+'"><\/script>';
+urlstwo = urlstwo+'<script type="text/javascript" src="http://s.youtube.com/api/stats/watchtime?ns=yt&el=embedded&cpn='+ cpn +'&docid='+ docid +'&ver=2&cmt='+ videlen +'&plid=AATd'+ plid +'&fmt=43&fs=0&rt='+ rt2 +'&cver=html5&len='+ videlen +'&state=playing&idpj=0&ldpj=0&rti=0&st='+ videlen +'&et='+ videlen +'"><\/script>';
+document.write(urlsone);
+document.write(urlstwo);
+x= x+1;
+}
+</script>
